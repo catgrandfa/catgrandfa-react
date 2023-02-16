@@ -1,5 +1,5 @@
 //系统管理接口
 
-declare namespace API {
+declare namespace LoginAPI {
 
 }
