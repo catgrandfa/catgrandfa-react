@@ -3,6 +3,7 @@ import { defineConfig } from '@umijs/max';
 import routes from './routes';
 import proxy from './proxy';
 import defaultSettings from './defaultSettings';
+const { REACT_APP_ENV } = process.env;
 
 export default defineConfig({
   antd: {},
@@ -11,7 +12,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: { ...defaultSettings },
-  proxy: proxy['dev'],
+  proxy: proxy[REACT_APP_ENV || 'dev'],
   //路径配置
   alias: {},
   jsMinifier: 'terser',
@@ -20,4 +21,8 @@ export default defineConfig({
   targets: {
     ie: 11,
   },
+  mock: {},
+  define: {
+    Request_Success_code: 200,
+  }
 });

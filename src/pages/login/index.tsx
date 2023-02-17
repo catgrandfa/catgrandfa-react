@@ -2,16 +2,30 @@ import React from 'react';
 import { Button, Form, Input } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import styles from './index.less';
-import { history } from 'umi';
+import { history, useModel, useLocation } from 'umi';
+import { loginNoCaptcha } from '@/api/baseSystem/login';
 
 const HomePage: React.FC = () => {
-  async function loginNoCaptcha(params: any) {
-    await localStorage.setItem('loginKey', JSON.stringify(params));
-    history.push('./home')
+  const { initialState, setInitialState } = useModel('@@initialState');
+  const location = useLocation();
+
+  async function toLoginNoCaptcha(params: any) {
+    try {
+      const res = await loginNoCaptcha(params);
+      if (res.code === Request_Success_code) {
+        const userInfo = res.data
+        await setInitialState((s: any) => ({
+          ...s,
+          currentUser: userInfo,
+        }));
+        localStorage.setItem('loginKey', JSON.stringify(params));
+        history.push('./');
+      }
+    } catch (err) {}
   }
   function onFinish(value: any) {
     console.log(value);
-    loginNoCaptcha(value);
+    toLoginNoCaptcha(value);
   }
 
   return (
@@ -23,13 +37,21 @@ const HomePage: React.FC = () => {
             name={'username'}
             rules={[{ required: true, message: '请输入用户名' }]}
           >
-            <Input prefix={<UserOutlined />} placeholder="请输入用户名" allowClear />
+            <Input
+              prefix={<UserOutlined />}
+              placeholder="请输入用户名"
+              allowClear
+            />
           </Form.Item>
           <Form.Item
             name={'password'}
             rules={[{ required: true, message: '请输入密码' }]}
           >
-            <Input.Password prefix={<LockOutlined />} placeholder="请输入密码" allowClear />
+            <Input.Password
+              prefix={<LockOutlined />}
+              placeholder="请输入密码"
+              allowClear
+            />
           </Form.Item>
           <Form.Item>
             <Button
