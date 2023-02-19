@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import styles from './index.less';
@@ -8,6 +8,7 @@ import { loginNoCaptcha } from '@/api/baseSystem/login';
 const HomePage: React.FC = () => {
   const { initialState, setInitialState } = useModel('@@initialState');
   const location = useLocation();
+  const [loading, setLoading] = useState<boolean>(false)
 
   async function toLoginNoCaptcha(params: any) {
     try {
@@ -21,9 +22,14 @@ const HomePage: React.FC = () => {
         localStorage.setItem('loginKey', JSON.stringify(params));
         history.push('./');
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err)
+    } finally {
+      setLoading(false)
+    }
   }
   function onFinish(value: any) {
+    setLoading(true)
     console.log(value);
     toLoginNoCaptcha(value);
   }
@@ -58,6 +64,7 @@ const HomePage: React.FC = () => {
               className={styles.loginButton}
               type="primary"
               htmlType="submit"
+              loading={loading}
             >
               登录
             </Button>
