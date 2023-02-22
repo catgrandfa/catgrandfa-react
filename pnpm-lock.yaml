@@ -9,6 +9,7 @@ specifiers:
   antd: ^4.20.7
   classnames: ^2.3.2
   cross-env: ^7.0.3
+  crypto-js: ^4.1.1
   husky: ^8.0.1
   immutability-helper: ^3.1.1
   lint-staged: ^13.0.3
@@ -27,6 +28,7 @@ dependencies:
   antd: 4.24.1_react@18.2.0
   classnames: 2.3.2
   cross-env: 7.0.3
+  crypto-js: 4.1.1
   immutability-helper: 3.1.1
   react: 18.2.0
   react-dnd: 16.0.1_fan5qbzahqtxlm5dzefqlqx5ia
@@ -3253,6 +3255,10 @@ packages:
       public-encrypt: 4.0.3
       randombytes: 2.1.0
       randomfill: 1.0.4
+    dev: false
+
+  /crypto-js/4.1.1:
+    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
     dev: false
 
   /css-blank-pseudo/3.0.3:
