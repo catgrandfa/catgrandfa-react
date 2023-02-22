@@ -12,12 +12,15 @@ type CurrentUser = {
 }
 
 
-export async function getInitialState(): Promise<{ currentUser: CurrentUser }> {
+export async function getInitialState(): Promise<{ currentUser: CurrentUser, fetchUserInfo: () => any }> {
   let currentUser;
   //提取用户信息
   const fetchUserInfo = async () => {
     try {
-
+      const token = localStorage.getItem('loginKey')
+      if (!token) {
+        history.push(loginPath);
+      }
     } catch (error) {
       console.log(error)
       history.push(loginPath);
