@@ -21,7 +21,9 @@
     "cross-env": "^7.0.3",
     "crypto-js": "^4.1.1",
     "immutability-helper": "^3.1.1",
+    "mapv": "^2.0.62",
     "react": "^18.2.0",
+    "react-bmapgl": "^0.2.16",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "three": "^0.150.0"

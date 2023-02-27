@@ -19,4 +19,12 @@ export default [
       icon: 'home',
     },
   },
+  {
+    name: '百度地图',
+    path: '/bMap',
+    component: './bMap',
+    meta: {
+      icon: 'home',
+    },
+  },
 ];

@@ -11,6 +11,18 @@ type CurrentUser = {
   nickName?: string;
 }
 
+// const bMapKey = 'wiK7TA380vuaK7eGEPjVh7qrhbE1jptv'
+// const bMapUrl = '//api.map.baidu.com/api?type=webgl&v=1.0&ak=';
+// // window['BMAPGL_URL'] = BMAPGL_URL;
+// // window['BMAPGL_OFFLINE_AK'] = 'wiK7TA380vuaK7eGEPjVh7qrhbE1jptv';
+// // window['BMAPGL_84'] = false;
+// (function () {
+//   console.log('百度地图')
+//   document.write(
+//     '<script type="text/javascript" src="+' + bMapUrl + bMapKey + '"></script>'
+//   );
+// })();
+
 
 export async function getInitialState(): Promise<{ currentUser: CurrentUser, fetchUserInfo: () => any }> {
   let currentUser;
