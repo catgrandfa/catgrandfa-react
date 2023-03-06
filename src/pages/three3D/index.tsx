@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Three3D = () => {
-  return (
-    <div>Three3D</div>
-  )
-}
+  return <div>Three3D</div>;
+};
 
-export default Three3D
+export default Three3D;

@@ -5,6 +5,6 @@ const GlobalKey = 'x-global';
 
 export function setUserToken(userInfo: object) {
   if (userInfo) {
-    localStorage.setItem(TokenKey, encrypt(JSON.stringify(userInfo)))
+    localStorage.setItem(TokenKey, encrypt(JSON.stringify(userInfo)));
   }
 }

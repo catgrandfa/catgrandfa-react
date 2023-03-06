@@ -24,5 +24,5 @@ export default defineConfig({
   mock: {},
   define: {
     Request_Success_code: 200,
-  }
+  },
 });

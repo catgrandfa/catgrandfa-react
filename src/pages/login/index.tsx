@@ -8,13 +8,13 @@ import { loginNoCaptcha } from '@/api/baseSystem/login';
 const HomePage: React.FC = () => {
   const { initialState, setInitialState } = useModel('@@initialState');
   const location = useLocation();
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false);
 
   async function toLoginNoCaptcha(params: any) {
     try {
       const res = await loginNoCaptcha(params);
       if (res.code === Request_Success_code) {
-        const userInfo = res.data
+        const userInfo = res.data;
         await setInitialState((s: any) => ({
           ...s,
           currentUser: userInfo,
@@ -23,13 +23,13 @@ const HomePage: React.FC = () => {
         history.push('./');
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
   function onFinish(value: any) {
-    setLoading(true)
+    setLoading(true);
     console.log(value);
     toLoginNoCaptcha(value);
   }

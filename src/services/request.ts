@@ -1,6 +1,5 @@
 import { RequestConfig } from '@umijs/max';
 
-
 export const request: RequestConfig = {
   timeout: 60000,
   errorConfig: {
